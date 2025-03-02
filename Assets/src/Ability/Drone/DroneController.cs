@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class DroneController : MonoBehaviour
@@ -17,10 +18,13 @@ public class DroneController : MonoBehaviour
     private int packCount = 3;
     private float height = 10;
     private GameObject proj;
+    private GameObject posta;
+
 
     void Start()
     {
         targetPosition = transform.position;
+        posta = GameObject.FindGameObjectsWithTag("PostaTarget")[0];
     }
 
     void Update()
@@ -58,9 +62,10 @@ public class DroneController : MonoBehaviour
         {
             transform.position += direction * flightSpeed * Time.deltaTime;
         }
-        else
+        else if (posta.GetComponent<PostaBase>().getRemainingPacks() > 0)
         {
             proj = Instantiate(projectile, transform.position - new Vector3(0, 3.5f, 0), Quaternion.identity);
+
             isMoving = false;
             canMoveAgain = true;
             StartCoroutine(WaitForDeliveryComplete());
@@ -79,6 +84,7 @@ public class DroneController : MonoBehaviour
                 yield return null;
             }
 
+            posta.GetComponent<PostaBase>().packDeliverd();
             packCount--;
             Debug.Log("Pacco rilasciato! Rimangono " + packCount + " pacchi.");
         }

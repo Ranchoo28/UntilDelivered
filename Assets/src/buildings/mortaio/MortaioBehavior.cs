@@ -40,6 +40,7 @@ public class MortaioBehavior : AbstractAttackBuilding {
         }
         targetVelocity = Vector3.zero;
         lastValidationTime = Time.time;
+        posta = GameObject.FindGameObjectsWithTag("PostaTarget")[0];
     }
 
     void Update() {
@@ -61,6 +62,10 @@ public class MortaioBehavior : AbstractAttackBuilding {
 
             isReloading = true;
             StartCoroutine(Fire());
+        }
+        if (posta.GetComponent<PostaBase>().getRemainingPacks() == 0)
+        {
+            transform.GetComponent<AbstractAttackBuilding>().enabled = false;
         }
     }
 
@@ -136,7 +141,7 @@ public class MortaioBehavior : AbstractAttackBuilding {
     }
 
     private IEnumerator Fire() {
-        if (currentTarget != null && currentTarget.activeInHierarchy) {
+        if (currentTarget != null && currentTarget.activeInHierarchy && posta.GetComponent<PostaBase>().getRemainingPacks() > 0) {
             Vector3 predictedPosition = PredictTargetPosition();
 
             if (IsTargetReachable(predictedPosition)) {
@@ -149,6 +154,7 @@ public class MortaioBehavior : AbstractAttackBuilding {
                     rb.velocity = launchVelocity;
                 }
             }
+            posta.GetComponent<PostaBase>().packDeliverd();
 
             yield return new WaitForSeconds(reloadTime);
             isReloading = false;

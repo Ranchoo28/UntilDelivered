@@ -2485,9 +2485,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2605328526878351114, guid: f708087ff681e8f44ac5e14a069ec19d, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 2133201752}
+    - target: {fileID: 2605328526878351114, guid: f708087ff681e8f44ac5e14a069ec19d, type: 3}
       propertyPath: loseScreen
       value: 
       objectReference: {fileID: 863273621}
+    - target: {fileID: 2605328526878351114, guid: f708087ff681e8f44ac5e14a069ec19d, type: 3}
+      propertyPath: packNumber
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2605328526878351114, guid: f708087ff681e8f44ac5e14a069ec19d, type: 3}
       propertyPath: healthSlider
       value: 
@@ -2936,6 +2944,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 93aa7836e3411794e8cf247a42ec7168, type: 3}
   m_PrefabInstance: {fileID: 399252658}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2133201752 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5907767503190688469, guid: 639961ab36f7be94e957dc57861850c8, type: 3}
+  m_PrefabInstance: {fileID: 554252332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

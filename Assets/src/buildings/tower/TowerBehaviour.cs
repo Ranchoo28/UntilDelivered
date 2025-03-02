@@ -26,6 +26,11 @@ public class TowerBehaviour : AbstractAttackBuilding
         set => price = value;
     }
 
+    private void Start()
+    {
+        posta = GameObject.FindGameObjectsWithTag("PostaTarget")[0];
+        Debug.Log(posta.name);
+    }
 
     void Update()
     {
@@ -54,6 +59,10 @@ public class TowerBehaviour : AbstractAttackBuilding
         else
         {
             UpdateTarget();
+        }
+        if (posta.GetComponent<PostaBase>().getRemainingPacks() == 0)
+        {
+            transform.GetComponent<AbstractAttackBuilding>().enabled = false;
         }
     }
     
@@ -106,7 +115,7 @@ public class TowerBehaviour : AbstractAttackBuilding
 
     private IEnumerator Fire()
     {
-        if (currentTarget != null) // Continua a sparare finché c'è un bersaglio valido
+        if (currentTarget != null && posta.GetComponent<PostaBase>().getRemainingPacks() > 0) // Continua a sparare finché c'è un bersaglio valido
         {
             // Istanzia il proiettile
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
@@ -117,6 +126,7 @@ public class TowerBehaviour : AbstractAttackBuilding
             {
                 projectileScript.SetTarget(currentTarget.transform);
             }
+            posta.GetComponent<PostaBase>().packDeliverd();
             // Aspetta prima di sparare di nuovo
             yield return new WaitForSeconds(attackSpeed); // Cambia 1f con il tuo tempo di ricarica
             isReloading = false;
