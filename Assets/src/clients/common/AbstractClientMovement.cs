@@ -14,7 +14,7 @@ public abstract class AbstractClientMovement : MonoBehaviour
     protected float angularSpeed { get; set; } = 500;
     protected float acceleration { get; set; } = 16;
     protected NavMeshAgent agent { get; set; }
-    protected BaseClientCombatIA baseClientCombatIA { get; set; }
+    protected AbstractClientCombat abstractClientCombatIA { get; set; }
     protected abstract void Initialize();
     protected abstract void Move();
 }

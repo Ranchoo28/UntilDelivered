@@ -1812,7 +1812,7 @@ MonoBehaviour:
   - {fileID: 636608451}
   - {fileID: 1631122946}
   winScreen: {fileID: 1558565408}
-  clientPrefab: {fileID: 8359220346498540747, guid: d413fe80009ddcf45ba17f988bfe8930, type: 3}
+  clientPrefab: {fileID: 1506057225295863098, guid: eeed2bf8d2201fd4d84176e92a939202, type: 3}
   bossPrefab: {fileID: 8359220346498540747, guid: 3b0c14b4c8f27e24082355b99ad547e0, type: 3}
 --- !u!4 &966073749
 Transform:

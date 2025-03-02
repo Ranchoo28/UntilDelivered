@@ -38,4 +38,10 @@ public class HealthScript : MonoBehaviour
             Destroy(clientCombat.gameObject);
         }
     }
+
+    //get the current health of the client
+    public float getCurrentHealth()
+    {
+        return clientCombat.currentHealth;
+    }
 }

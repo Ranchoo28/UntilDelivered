@@ -855,6 +855,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375028329}
   m_CullTransparentMesh: 1
+--- !u!114 &452242849 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5907767503190688469, guid: 639961ab36f7be94e957dc57861850c8, type: 3}
+  m_PrefabInstance: {fileID: 1247140954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &493462744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2819,6 +2830,11 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 113fae551d49f8d4b9c1172249deaeac, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &1419155176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7775939283304265053, guid: 639961ab36f7be94e957dc57861850c8, type: 3}
+  m_PrefabInstance: {fileID: 1247140954}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1532823060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4118,10 +4134,21 @@ MonoBehaviour:
   waveTextUI: {fileID: 674605452}
   spawners:
   - {fileID: 191357155}
-  - {fileID: 0}
+  - {fileID: 191357155}
   winScreen: {fileID: 1757748482}
   clientPrefab: {fileID: 1506057225295863098, guid: eeed2bf8d2201fd4d84176e92a939202, type: 3}
   bossPrefab: {fileID: 1506057225295863098, guid: eeed2bf8d2201fd4d84176e92a939202, type: 3}
+--- !u!114 &2113835545 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1178212550911118343, guid: 639961ab36f7be94e957dc57861850c8, type: 3}
+  m_PrefabInstance: {fileID: 1247140954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2143278114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4363,9 +4390,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3883653463416460943, guid: 8b84e9ca8f11ae3438bd9a66c075c826, type: 3}
     - target: {fileID: 2605328526878351114, guid: f708087ff681e8f44ac5e14a069ec19d, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 452242849}
+    - target: {fileID: 2605328526878351114, guid: f708087ff681e8f44ac5e14a069ec19d, type: 3}
+      propertyPath: loseScreen
+      value: 
+      objectReference: {fileID: 1419155176}
+    - target: {fileID: 2605328526878351114, guid: f708087ff681e8f44ac5e14a069ec19d, type: 3}
+      propertyPath: packNumber
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605328526878351114, guid: f708087ff681e8f44ac5e14a069ec19d, type: 3}
       propertyPath: healthSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2113835545}
     - target: {fileID: 6011905780803577286, guid: f708087ff681e8f44ac5e14a069ec19d, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.312
