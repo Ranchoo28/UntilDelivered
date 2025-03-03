@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class DisabledClientCombatIA : AbstractClientCombat
 {
     private ClientMovementIA movement;
     private bool changeTarget = false;
     private bool isStarting = false;
+    private bool phase1 = true;
+    public GameObject wheelChair;
+    private bool isWheelchairDestroyed = false;
+    public GameObject legRight;
+    public GameObject legLeft;
+
     private void Awake()
     {
         maxHealth = 20f;
@@ -15,13 +22,27 @@ public class DisabledClientCombatIA : AbstractClientCombat
         gold = 10;
         
         Initialize();
-    
     }
 
 
     void Update()
     {
         SearchObstacles();
+        if (healthScript.getCurrentHealth() <= maxHealth * 0.5f && !isWheelchairDestroyed)
+        {
+            healthScript.getSliderImage().color = Color.red;
+            Destroy(wheelChair);
+            isWheelchairDestroyed = true; // Evita di distruggerla più volte
+
+
+            //voglio che la transform,rotation abbia la x = 0
+            legRight.transform.localRotation = Quaternion.identity;
+            legLeft.transform.localRotation = Quaternion.identity;
+
+
+
+
+        }
         if (changeTarget)
         {
             UpdateTarget();
@@ -94,6 +115,7 @@ public class DisabledClientCombatIA : AbstractClientCombat
 
         healthScript = GetComponentInChildren<HealthScript>();
         agent = GetComponent<NavMeshAgent>();
+
     }
 
     private void LookAtPosta()
@@ -103,5 +125,10 @@ public class DisabledClientCombatIA : AbstractClientCombat
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.1f);
         isLookingAtPosta = true;
+    }
+
+    public bool currentPhase()
+    {
+        return phase1;
     }
 }

@@ -44,4 +44,9 @@ public class HealthScript : MonoBehaviour
     {
         return clientCombat.currentHealth;
     }
+
+    public Image getSliderImage()
+    {
+        return healthSlider.fillRect.GetComponent<Image>();
+    }
 }

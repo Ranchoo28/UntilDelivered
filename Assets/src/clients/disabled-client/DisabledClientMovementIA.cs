@@ -6,8 +6,6 @@ using UnityEngine.AI;
 public class DisabledClientMovementIA : AbstractClientMovement
 {
     private bool canMove = false;
-    private bool Phase1 = true;
-    HealthScript health;
     void Start()
     {
         Initialize();
@@ -17,7 +15,6 @@ public class DisabledClientMovementIA : AbstractClientMovement
     void Update()
     {
         Move();
-        Debug.Log(health.getCurrentHealth());
         
 
     }
@@ -46,7 +43,6 @@ public class DisabledClientMovementIA : AbstractClientMovement
         agent.stoppingDistance = abstractClientCombatIA.attackRange;
         agent.SetDestination(destination.position);
 
-        health= GetComponentInChildren<HealthScript>();
         
         //waypointIndex++;
     }
