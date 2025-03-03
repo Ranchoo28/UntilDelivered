@@ -45,6 +45,8 @@ public class ProjectileScript : AbstractProjectile
                 other.GetComponentInParent<PacksBehaviour>().TakeDamage(damage);
              Destroy(gameObject);
         }
+        else if (other.CompareTag("Kamikaze"))
+            other.GetComponentInParent<Kamikaze>().TakeDamage(damage);
        
     }
 

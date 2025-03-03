@@ -14,6 +14,8 @@ TagManager:
   - WaveImage
   - UI_BTN
   - Spawner
+  - MAST_Holder
+  - Kamikaze
   layers:
   - Default
   - TransparentFX
