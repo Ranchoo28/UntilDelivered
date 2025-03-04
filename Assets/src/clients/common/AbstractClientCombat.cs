@@ -16,6 +16,7 @@ public abstract class AbstractClientCombat : MonoBehaviour
     public int gold { get; set; }
 
     public float currentHealth { get; set; }
+    public int currentPhase { get; set; }
     public float attackSpeed { get; set; }
     protected HealthScript healthScript { get; set; }
     [Header("--- Combat Attributes ---")]

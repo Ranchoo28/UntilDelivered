@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class DisabledClientMovementIA : AbstractClientMovement
 {
     private bool canMove = false;
+    private int boost = 4;
+
     void Start()
     {
         Initialize();
@@ -14,6 +16,18 @@ public class DisabledClientMovementIA : AbstractClientMovement
     // Update is called once per frame
     void Update()
     {
+        if (abstractClientCombatIA.currentPhase==0)
+        {
+            agent.speed = walkingSpeed+boost;
+            agent.angularSpeed = angularSpeed+boost;
+            agent.acceleration = acceleration+boost;
+        }
+        else
+        {
+            agent.speed = walkingSpeed - boost;
+            agent.angularSpeed = angularSpeed - boost;
+            agent.acceleration = acceleration - boost;
+        }
         Move();
         
 

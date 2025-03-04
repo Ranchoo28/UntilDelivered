@@ -9,7 +9,6 @@ public class DisabledClientCombatIA : AbstractClientCombat
     private ClientMovementIA movement;
     private bool changeTarget = false;
     private bool isStarting = false;
-    private bool phase1 = true;
     public GameObject wheelChair;
     private bool isWheelchairDestroyed = false;
     public GameObject legRight;
@@ -20,7 +19,8 @@ public class DisabledClientCombatIA : AbstractClientCombat
         maxHealth = 20f;
         damage = 1.5f;
         gold = 10;
-        
+        currentPhase=0;
+
         Initialize();
     }
 
@@ -28,21 +28,24 @@ public class DisabledClientCombatIA : AbstractClientCombat
     void Update()
     {
         SearchObstacles();
-        if (healthScript.getCurrentHealth() <= maxHealth * 0.5f && !isWheelchairDestroyed)
+        if (currentPhase==0)
         {
-            healthScript.getSliderImage().color = Color.red;
-            Destroy(wheelChair);
-            isWheelchairDestroyed = true; // Evita di distruggerla più volte
+            if (healthScript.getCurrentHealth() <= maxHealth * 0.5f && !isWheelchairDestroyed)
+            {
+                currentPhase = 1;
+                healthScript.getSliderImage().color = Color.red;
+                Destroy(wheelChair);
+                isWheelchairDestroyed = true; // Evita di distruggerla più volte
 
 
-            //voglio che la transform,rotation abbia la x = 0
-            legRight.transform.localRotation = Quaternion.identity;
-            legLeft.transform.localRotation = Quaternion.identity;
+                //voglio che la transform,rotation abbia la x = 0
+                legRight.transform.localRotation = Quaternion.identity;
+                legLeft.transform.localRotation = Quaternion.identity;
 
 
-
-
+            }
         }
+        
         if (changeTarget)
         {
             UpdateTarget();
@@ -127,8 +130,5 @@ public class DisabledClientCombatIA : AbstractClientCombat
         isLookingAtPosta = true;
     }
 
-    public bool currentPhase()
-    {
-        return phase1;
-    }
+    
 }
