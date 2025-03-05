@@ -30,12 +30,22 @@ public class HealthScript : MonoBehaviour
 
     public void TakeDamage(float damage) {
         if(isDead) return;
-        healthSlider.value = clientCombat.currentHealth -= damage;
-        if (clientCombat.currentHealth <= 0) {
-            isDead = true;
-            OnEnemyDeath?.Invoke(clientCombat.gameObject);
-            PlayerInfo.GetInstance().addGold(clientCombat.gold);
-            Destroy(clientCombat.gameObject);
+        if (clientCombat.currentPhase == 0)
+        {
+
+            healthSlider.value = clientCombat.currentHealth -= damage * 0.8f;
+
+        }
+        else
+        {
+            healthSlider.value = clientCombat.currentHealth -= damage;
+            if (clientCombat.currentHealth <= 0)
+            {
+                isDead = true;
+                OnEnemyDeath?.Invoke(clientCombat.gameObject);
+                PlayerInfo.GetInstance().addGold(clientCombat.gold);
+                Destroy(clientCombat.gameObject);
+            }
         }
     }
 
