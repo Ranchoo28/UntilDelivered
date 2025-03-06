@@ -8,10 +8,16 @@ public class PostalWorkersMovementIA : AbstractClientMovement
 {
     private bool canMove = false;
     private PostalWorkersCombatIA CombatIA;
+    private Animator animator;
+
     void Start()
     {
+        
         Initialize();
         walkingSpeed = 6;
+        animator = GetComponent<Animator>();
+        animator.SetInteger("Speed", (int)walkingSpeed);
+        animator.SetBool("isWalking", true);
     }
 
     void Update()
@@ -21,20 +27,25 @@ public class PostalWorkersMovementIA : AbstractClientMovement
 
     protected override void Move()
     {
-        if (agent.remainingDistance <= CombatIA.attackRange && !canMove) {
-            canMove = CombatIA.canAttack = true;
-        }
-        if (CombatIA.isFuryMode()) {
+        if (CombatIA.isFuryMode())
+        {
             walkingSpeed = 12;
         }
         else
         {
             walkingSpeed = 6;
         }
+        animator.SetInteger("Speed", (int)walkingSpeed);
+        agent.speed = walkingSpeed;
+        if (agent.remainingDistance <= abstractClientCombatIA.attackRange && !canMove) {
+            canMove = abstractClientCombatIA.canAttack = true;
+        }
     }
     protected override void Initialize() {
         destination = GameObject.FindWithTag(Const.POSTA_DESTINATION_TAG).transform;
         agent = GetComponent<NavMeshAgent>();
+
+        abstractClientCombatIA = GetComponent<PostalWorkersCombatIA>();
         CombatIA = GetComponent<PostalWorkersCombatIA>();
 
         agent.speed = walkingSpeed;
