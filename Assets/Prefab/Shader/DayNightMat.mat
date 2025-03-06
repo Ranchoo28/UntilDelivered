@@ -117,13 +117,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Blend: 0.3432074
+    - _Blend: 0.019739095
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Exposure1: 0.46271706
-    - _Exposure2: 0.33728296
+    - _Exposure1: 0.5921044
+    - _Exposure2: 0.20789564
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -145,6 +145,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
-    - _Tint1: {r: 0.69111335, g: 0.69111335, b: 0.75975484, a: 1}
-    - _Tint2: {r: 0.40888664, g: 0.40888664, b: 0.5402452, a: 1}
+    - _Tint1: {r: 0.98223484, g: 0.98223484, b: 0.98618263, a: 1}
+    - _Tint2: {r: 0.11776519, g: 0.11776519, b: 0.31381738, a: 1}
   m_BuildTextureStacks: []
