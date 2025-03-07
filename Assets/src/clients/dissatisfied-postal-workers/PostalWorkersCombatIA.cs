@@ -83,14 +83,12 @@ public class PostalWorkersCombatIA : AbstractClientCombat
         }
     }
 
-
     protected override IEnumerator Attack() {
         if (canAttack && (agent.velocity.magnitude <= 0.1f)) {
             animator.SetBool("isWalking", false);
             animator.SetBool("isAttacking", true);
             canAttack = false;
             LookAtPosta();
-            new_projectile.GetComponent<ProjectileScript>().CreateProjectile(new_projectile, new Vector3(transform.position.x, transform.position.y+2.5f, transform.position.z), Quaternion.identity, damage);
             yield return new WaitForSeconds(attackSpeed);
             canAttack = true;
             weapon.SetActive(true);

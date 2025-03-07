@@ -1400,8 +1400,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2034521143794217110, guid: 65ddc4cddfc985b41bfe0649be45b3fe, type: 3}
-      propertyPath: m_ApplyRootMotion
+    - target: {fileID: 3342180256316684332, guid: 65ddc4cddfc985b41bfe0649be45b3fe, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3421500269487085367, guid: 65ddc4cddfc985b41bfe0649be45b3fe, type: 3}
@@ -1412,14 +1412,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4187462640509184305, guid: 65ddc4cddfc985b41bfe0649be45b3fe, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4187462640509184305, guid: 65ddc4cddfc985b41bfe0649be45b3fe, type: 3}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 1975762832830535917, guid: 6e2d086e9ec70914eb0df206b5de7943, type: 3}
     - target: {fileID: 6637796357214944839, guid: 65ddc4cddfc985b41bfe0649be45b3fe, type: 3}
       propertyPath: m_Name
       value: DissatisfiedPostalWorkers
