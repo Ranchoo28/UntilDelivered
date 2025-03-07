@@ -7,10 +7,14 @@ public class DisabledClientMovementIA : AbstractClientMovement
 {
     private bool canMove = false;
     private int boost = 4;
+    private Animator animator;
 
     void Start()
     {
         Initialize();
+        animator = GetComponent<Animator>();
+        animator.SetInteger("Speed", (int)walkingSpeed);
+        animator.SetBool("isWalking", true);
     }
 
     // Update is called once per frame

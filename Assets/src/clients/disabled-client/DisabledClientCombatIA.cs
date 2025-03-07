@@ -13,6 +13,8 @@ public class DisabledClientCombatIA : AbstractClientCombat
     private bool isWheelchairDestroyed = false;
     public GameObject legRight;
     public GameObject legLeft;
+    private Animator animator;
+
 
     private void Awake()
     {
@@ -20,6 +22,8 @@ public class DisabledClientCombatIA : AbstractClientCombat
         damage = 1.5f;
         gold = 10;
         currentPhase=0;
+        animator = GetComponent<Animator>();
+        animator.SetBool("halfLife", false);
 
         Initialize();
     }
@@ -27,6 +31,15 @@ public class DisabledClientCombatIA : AbstractClientCombat
 
     void Update()
     {
+        if(currentHealth <= 0)
+        {
+            animator.SetBool("isDead", true);
+            gameObject.tag = "Untagged";
+            agent.isStopped = true; // Ferma il NavMeshAgent senza disattivarlo
+
+
+
+        }
         SearchObstacles();
         if (currentPhase==0)
         {
@@ -36,6 +49,7 @@ public class DisabledClientCombatIA : AbstractClientCombat
                 healthScript.getSliderImage().color = Color.red;
                 Destroy(wheelChair);
                 isWheelchairDestroyed = true; // Evita di distruggerla più volte
+                animator.SetBool("halfLife", true);
 
 
                 //voglio che la transform,rotation abbia la x = 0
@@ -54,9 +68,14 @@ public class DisabledClientCombatIA : AbstractClientCombat
         {
             StartCoroutine(Attack());
         }
-        else
+        else if (!isStarting)
         {
             isStarting = true;
+        }
+        else
+        {
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isAttacking", false);
         }
 
     }
@@ -99,6 +118,8 @@ public class DisabledClientCombatIA : AbstractClientCombat
     {
         if (canAttack && (agent.velocity.magnitude <= 0.1f))
         {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isAttacking", true);
             canAttack = false;
             LookAtPosta();
             projectile.GetComponent<ProjectileScript>().CreateProjectile(projectile, transform.position, Quaternion.identity, damage);

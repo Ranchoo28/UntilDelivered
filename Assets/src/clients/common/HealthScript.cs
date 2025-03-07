@@ -12,6 +12,7 @@ public class HealthScript : MonoBehaviour
     private bool isDead = false;
     public static event Action<GameObject> OnEnemyDeath;
 
+
     void Start() {
        Initialize();
     }
@@ -44,9 +45,16 @@ public class HealthScript : MonoBehaviour
                 isDead = true;
                 OnEnemyDeath?.Invoke(clientCombat.gameObject);
                 PlayerInfo.GetInstance().addGold(clientCombat.gold);
-                Destroy(clientCombat.gameObject);
+                StartCoroutine(DestroyEnemy());                     // fatta perchè altrimenti non parte l'animazione di morte
             }
         }
+    }
+
+
+    private IEnumerator DestroyEnemy()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(clientCombat.gameObject);
     }
 
     //get the current health of the client
