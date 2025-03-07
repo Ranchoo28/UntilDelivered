@@ -299,7 +299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87db436f19ac71e409c96a2083fb3ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1975762832830535917, guid: e854d08ea5caa554e809340df7baca70, type: 3}
+  projectile: {fileID: 8858437810908823201, guid: 40d8ded0f69dac14ba3377410b7276c4, type: 3}
+  new_projectile: {fileID: 8858437810908823201, guid: 40d8ded0f69dac14ba3377410b7276c4, type: 3}
   weapon: {fileID: 6696975836561327879}
 --- !u!114 &1557873462766454402
 MonoBehaviour:

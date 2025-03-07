@@ -11,7 +11,8 @@ public class PostalWorkersCombatIA : AbstractClientCombat
     private bool isStarting = false; //Serve per risolvere il bug che appena iniziano sparano, se non si capisce il bug vai nel livello 3 e caccia is starting dall'if nell'update
     private bool isInFuryMode,furyModeStarted;
     private Animator animator;
-    [SerializeField]private GameObject weapon;
+    [SerializeField] private GameObject new_projectile;
+    [SerializeField] private GameObject weapon;
 
     void Awake() {
         movement = GetComponent<PostalWorkersMovementIA>();
@@ -89,7 +90,7 @@ public class PostalWorkersCombatIA : AbstractClientCombat
             animator.SetBool("isAttacking", true);
             canAttack = false;
             LookAtPosta();
-            projectile.GetComponent<ProjectileScript>().CreateProjectile(projectile, new Vector3(transform.position.x, transform.position.y+2.5f, transform.position.z), Quaternion.identity, damage);
+            new_projectile.GetComponent<ProjectileScript>().CreateProjectile(new_projectile, new Vector3(transform.position.x, transform.position.y+2.5f, transform.position.z), Quaternion.identity, damage);
             yield return new WaitForSeconds(attackSpeed);
             canAttack = true;
             weapon.SetActive(true);
